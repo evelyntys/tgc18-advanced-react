@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import AddProduct from './AddProductForm';
 import ProductContext from './ProductContext';
 import ProductListing from './ProductListing';
 
@@ -27,6 +28,16 @@ function App(){
     // function to get all the products
     products: () => {
       return products;
+    // put axios here to fetch all
+    },
+    addProducts : (productName, cost) => {
+      const cloned = [...products, {
+        id: Math.floor((Math.random() * 10000) + 1000),
+        product_name: productName,
+        cost: cost
+      }]
+      setProducts(cloned)
+      // put axios here to add
     }
   }
   return(
@@ -38,6 +49,7 @@ function App(){
         {/* component must be rendered under productcontext.provider for it to share the context */}
         <h1>my catalog</h1>
         <ProductListing/>
+        <AddProduct/>
         </ProductContext.Provider>
     </React.Fragment>
 

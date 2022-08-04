@@ -4,6 +4,7 @@ import AboutUs from './pages/AboutUs';
 import Home from './pages/Home';
 import ContactUs from './pages/ContactUs';
 import SubmittedForm from './pages/SubmittedForm';
+import PostPage from './pages/PostPage';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             <li>
               <Link to='/contact'>Contact</Link>
             </li>
+            <li>
+              <Link to='/posts'>Post</Link>
+            </li>
           </ul>
           {/* the <Routes> contains the page */}
           <Routes>
@@ -29,6 +33,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path='/contact' element={<ContactUs />} />
             <Route path="/form-submitted" element={<SubmittedForm/>} />
+            <Route path='/posts' element ={<PostPage/>} />
           </Routes>
         </nav>
       </Router>

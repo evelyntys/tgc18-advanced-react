@@ -1,15 +1,21 @@
 import React, { useContext } from 'react';
 import AddStudent from './AddStudent';
+import AddStudentHooks from './AddStudentHooks';
 import StudentContext from './StudentContext';
 
 export default function StudentList() {
     const studentContext = useContext(StudentContext);
+
+    // const deleteStudent = () => {
+    //     studentContext.deleteStudent(id)
+    // }
     return (
         <React.Fragment>
             <h1>list of students</h1>
             <table>
                 <tr>
                     <td>student number</td>
+                    <td>name</td>
                     <td>year of study</td>
                     <td>gender</td>
                     <td>graduated</td>
@@ -19,10 +25,11 @@ export default function StudentList() {
                     return(
                     <tr>
                     <td>{each.student_number}</td>
+                    <td>{each.name}</td>
                     <td>{each.year}</td>
                     <td>{each.gender}</td>
-                    <td>{each.graduated? 'graduated': 'still studying'}</td>
-                    <td><button onClick={() => {studentContext.deleteStudent(each.student_number)}}>delete</button></td>
+                    <td>{each.graduated==='true'? 'graduated': 'still studying'}</td>
+                    <td><button onClick={() => {studentContext.deleteStudent(each.id)}}>delete</button></td>
                 </tr>
                     )
                 })}
@@ -38,7 +45,8 @@ export default function StudentList() {
                     </div>)
                 })
             } */}
-            <AddStudent/>
+            {/* <AddStudent/> */}
+            <AddStudentHooks/>
         </React.Fragment>
     )
 }
